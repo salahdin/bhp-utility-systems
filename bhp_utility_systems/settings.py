@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+APP_NAME = 'bhp_utility_systems'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -23,6 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
+ETC_DIR = '/etc/'
+ETC_DIR = '/etc/'
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -37,6 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_crypto_fields.apps.AppConfig',
+    'django_extensions',
+    'edc_dashboard.apps.AppConfig',
+    'edc_device.apps.AppConfig',
+    'edc_model_admin.apps.AppConfig',
+    'edc_navbar.apps.AppConfig',
+    'bhp_utility_systems.apps.EdcBaseAppConfig',
+    'bhp_utility_systems.apps.EdcProtocolAppConfig',
+    'bhp_utility_systems.apps.AppConfig',
+    'bhp_utility_systems.apps.EdcIdentifierAppConfig'
 ]
 
 MIDDLEWARE = [
@@ -47,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'edc_dashboard.middleware.DashboardMiddleware',
 ]
 
 ROOT_URLCONF = 'bhp_utility_systems.urls'
@@ -113,8 +130,29 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_CODE = '1'
+
+DEFAULT_STUDY_SITE = '1'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'tshilo_dikotla', 'static')
+
+# Dashboards
+
+DASHBOARD_URL_NAMES = {
+}
+
+LAB_DASHBOARD_URL_NAMES = {}
+
+DASHBOARD_BASE_TEMPLATES = {
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+GIT_DIR = BASE_DIR
+

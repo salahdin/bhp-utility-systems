@@ -1,0 +1,113 @@
+{% extends 'tshilo_dikotla/base.html' %}
+{% load staticfiles %}
+
+{% block extra-scripts %}
+
+{% endblock extra-scripts %}
+
+
+{% block extra-styles %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<style>
+.my-card
+{
+    position:absolute;
+    left:40%;
+    top:-20px;
+    border-radius:50%;
+}
+</style>
+{% endblock extra-styles %}
+
+{% block main %}
+<div class="jumbotron">
+<div class="row w-100">
+        <div class="col-md-3">
+            <div class="card border-info mx-sm-1 p-3">
+                <div class="card border-info shadow text-info p-3 my-card" ><span  aria-hidden="true"></span></div>
+                <div class="text-info text-center mt-3"><h4>Maternal Consents</h4></div>
+                <div class="text-info text-center mt-2"><h1>234</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-success mx-sm-1 p-3">
+                <div class="card border-success shadow text-success p-3 my-card"><span  aria-hidden="true"></span></div>
+                <div class="text-success text-center mt-3"><h4>Infant</h4></div>
+                <div class="text-success text-center mt-2"><h1>9332</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-danger mx-sm-1 p-3">
+                <div class="card border-danger shadow text-danger p-3 my-card" ><span aria-hidden="true"></span></div>
+                <div class="text-danger text-center mt-3"><h4>Karabo enrollments</h4></div>
+                <div class="text-danger text-center mt-2"><h1>346</h1></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-warning mx-sm-1 p-3">
+                <div class="card border-warning shadow text-warning p-3 my-card" ><span  aria-hidden="true"></span></div>
+                <div class="text-warning text-center mt-3"><h4>Specimen consents</h4></div>
+                <div class="text-warning text-center mt-2"><h1>346</h1></div>
+            </div>
+        </div>
+     </div>
+</div>
+<div class="row">
+
+<aside class="col-sm-4">
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header"><h6 class="title">Other stats </h6></header>
+		<div class="filter-content">
+			<div class="list-group list-group-flush">
+			  <a href="#" class="list-group-item">Verified consent <span class="float-right badge badge-light round">142</span> </a>
+			  <a href="#" class="list-group-item">Unverified consent  <span class="float-right badge badge-light round">3</span>  </a>
+			  <a href="#" class="list-group-item">Expecting mothers <span class="float-right badge badge-light round">32</span>  </a>
+			  <a href="#" class="list-group-item">Delivered mothers <span class="float-right badge badge-light round">12</span>  </a>
+			  <a href="#" class="list-group-item">TD Offstudy <span class="float-right badge badge-light round">12</span>  </a>
+			  <a href="#" class="list-group-item">Karabo Offstudy <span class="float-right badge badge-light round">12</span>  </a>
+			</div>  <!-- list-group .// -->
+		</div>
+	</article> <!-- card-group-item.// -->
+</div> <!-- card.// -->
+</aside> <!-- col.// -->
+
+
+<aside class="col-sm-4">
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header"><h6 class="title">Links </h6></header>
+		<div class="filter-content">
+			<div class="list-group list-group-flush">
+			  <a href="{% url data_manager_listboard_url %}" class="list-group-item">Data Action items </a>
+			  <a href="{% url odk_listboard_url %}" class="list-group-item">ODK Copies: Consents & Omang</a>
+			  <a href="{% url export_listboard_url %}" class="list-group-item">Data Export</a>
+			  <a href="#" class="list-group-item">Verify consent</a>
+			</div>  <!-- list-group .// -->
+		</div>
+	</article> <!-- card-group-item.// -->
+</div> <!-- card.// -->
+</aside> <!-- col.// -->
+
+<aside class="col-sm-4">
+<div class="card">
+	<article class="card-group-item">
+		<header class="card-header"><h6 class="title">Lab stats </h6></header>
+		<div class="filter-content">
+			<div class="list-group list-group-flush">
+			  <a href="#" class="list-group-item">Resulted: TD & Karabo <span class="float-right badge badge-light round">142</span>  <span class="float-right badge badge-light round">142</span> </a>
+			  <a href="#" class="list-group-item">Pending results: TD & Karabo  <span class="float-right badge badge-light round">3</span> <span class="float-right badge badge-light round">3</span></a>
+			  <a href="#" class="list-group-item">Stored samples: TD & Karabo <span class="float-right badge badge-light round">32</span> <span class="float-right badge badge-light round">32</span></a>
+			  <a href="#" class="list-group-item">Shipped samples: TD & Karabo <span class="float-right badge badge-light round">12</span> <span class="float-right badge badge-light round">12</span></a>
+			</div>  <!-- list-group .// -->
+		</div>
+	</article> <!-- card-group-item.// -->
+</div> <!-- card.// -->
+</aside> <!-- col.// -->
+</div>
+{% endblock main %}
+{% block extra-scripts-bottom %}
+<script>
+
+</script>
+{% endblock %}
