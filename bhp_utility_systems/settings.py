@@ -18,6 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 APP_NAME = 'bhp_utility_systems'
 
+INDEX_PAGE = 'bhpus.bhp.org.bw'
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -28,6 +30,7 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 ETC_DIR = '/etc/'
 ETC_DIR = '/etc/'
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -141,7 +144,7 @@ DEFAULT_STUDY_SITE = '1'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'tshilo_dikotla', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utilityt_systems', 'static')
 
 # Dashboards
 

@@ -8,9 +8,8 @@ from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 
 
 class AppConfig(DjangoAppConfig):
-    name = 'bhp-utility-systems'
+    name = 'bhp_utility_systems'
     verbose_name = 'BHP Utility Systems'
-    admin_site_name = 'contract_admin'
     identifier_pattern = None
 
 
