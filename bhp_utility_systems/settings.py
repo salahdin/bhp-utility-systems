@@ -30,6 +30,8 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 ETC_DIR = '/etc/'
 
+SITE_ID = 40
+
 LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
