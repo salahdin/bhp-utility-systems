@@ -38,8 +38,7 @@ urlpatterns = [
     path('edc_device/', include('edc_device.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_identifier/', include('edc_identifier.urls')),
-    
-    path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
+
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
     path('home/', HomeView.as_view(), name='home_url'),

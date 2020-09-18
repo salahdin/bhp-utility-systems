@@ -29,11 +29,12 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 # SECURITY WARNING: don't run with debug turned on in production!
 
 ETC_DIR = '/etc/'
-ETC_DIR = '/etc/'
+
+LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -133,9 +134,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-SITE_CODE = '1'
+SITE_CODE = '40'
 
-DEFAULT_STUDY_SITE = '1'
+DEFAULT_STUDY_SITE = '40'
 
 
 # Static files (CSS, JavaScript, Images)
