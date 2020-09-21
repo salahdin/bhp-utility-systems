@@ -23,6 +23,7 @@ from django.views.generic.base import RedirectView
 from edc_identifier.admin_site import edc_identifier_admin
 from document_tracking.admin_site import document_tracking_admin
 from procurement.admin_site import procurement_admin
+from bhp_personnel.admin_site import bhp_personnel_admin
 
 from .views import HomeView, AdministrationView
 
@@ -34,12 +35,16 @@ urlpatterns = [
 
     path('admin/', document_tracking_admin.urls),
     path('admin/', procurement_admin.urls),
+    path('admin/', bhp_personnel_admin.urls),
     path('admin/', edc_identifier_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
     path('admin/procurement/',
          RedirectView.as_view(url='admin/procurement/'),
          name='procurement_models_url'),
+    path('admin/bhp_personnel/',
+         RedirectView.as_view(url='admin/bhp_personnel/'),
+         name='bhp_personnel_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
     path('edc_device/', include('edc_device.urls')),
@@ -51,6 +56,9 @@ urlpatterns = [
 
     path('procurement/', include('procurement.urls')),
     path('procurement_dashboard/', include('procurement_dashboard.urls')),
+
+    path('bhp_personnel/', include('bhp_personnel.urls')),
+    path('cms/', include('cms_dashboard.urls')),
 
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
