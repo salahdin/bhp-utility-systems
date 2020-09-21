@@ -55,10 +55,12 @@ INSTALLED_APPS = [
     'edc_device.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'procurement_dashboard.apps.AppConfig',
+    'procurement.apps.AppConfig',
     'bhp_utility_systems.apps.EdcBaseAppConfig',
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
+    'bhp_utility_systems.apps.EdcIdentifierAppConfig',
     'bhp_utility_systems.apps.AppConfig',
-    'bhp_utility_systems.apps.EdcIdentifierAppConfig'
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'edc_dashboard.middleware.DashboardMiddleware',
+    'edc_subject_dashboard.middleware.DashboardMiddleware'
 ]
 
 ROOT_URLCONF = 'bhp_utility_systems.urls'
@@ -148,16 +151,22 @@ DEFAULT_STUDY_SITE = '40'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utilityt_systems', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utility_systems', 'static')
 
 # Dashboards
 
 DASHBOARD_URL_NAMES = {
+    'procurement_url': 'procurement_dashboard:procurement_url',
+    'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
+    'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url'
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
 
 DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'bhp_utility_systems/base.html',
+    'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
+    'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html'
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
