@@ -57,6 +57,8 @@ INSTALLED_APPS = [
     'edc_navbar.apps.AppConfig',
     'procurement_dashboard.apps.AppConfig',
     'procurement.apps.AppConfig',
+    'bhp_personnel.apps.AppConfig',
+    'cms_dashboard.apps.AppConfig',
     'bhp_utility_systems.apps.EdcBaseAppConfig',
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
@@ -158,7 +160,20 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utility_systems', 'static')
 DASHBOARD_URL_NAMES = {
     'procurement_url': 'procurement_dashboard:procurement_url',
     'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
-    'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url'
+    'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url',
+    # CMS url name
+    'employee_dashboard_url': 'cms_dashboard:employee_dashboard_url',
+    'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
+    'emp_contract_listboard_url': 'cms_dashboard:emp_contract_listboard_url',
+    'pi_contract_listboard_url': 'cms_dashboard:pi_contract_listboard_url',
+    'pi_listboard_url': 'cms_dashboard:pi_listboard_url',
+    'pi_dashboard_url': 'cms_dashboard:pi_dashboard_url',
+    'consultant_contract_listboard_url': 'cms_dashboard:'
+                                         'consultant_contract_listboard_url',
+    'consultant_listboard_url': 'cms_dashboard:consultant_listboard_url',
+    'consultant_dashboard_url': 'cms_dashboard:consultant_dashboard_url',
+    'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
+    'cms_url': 'cms_dashboard:cms_url'
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -166,7 +181,18 @@ LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
-    'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html'
+    'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
+    # CMS templates
+    'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',
+    'allcontracts_listboard_template': 'cms_dashboard/contract/'
+                                       'allcontracts_listboard.html',
+    'dashboard_base_template': 'cms/base.html',
+    'employee_dashboard_template': 'cms_dashboard/employee/employee_dashboard.html',
+    'employee_listboard_template': 'cms_dashboard/employee/employee_listboard.html',
+    'pi_dashboard_template': 'cms_dashboard/pi/pi_dashboard.html',
+    'pi_listboard_template': 'cms_dashboard/pi/pi_listboard.html',
+    'consultant_listboard_template': 'cms_dashboard/consultant/consultant_listboard.html',
+    'consultant_dashboard_template': 'cms_dashboard/consultant/consultant_dashboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

@@ -11,4 +11,11 @@ bhp_utility_systems.append_item(
         fa_icon='',
         url_name=settings.DASHBOARD_URL_NAMES.get('procurement_url')))
 
+bhp_utility_systems.append_item(
+    NavbarItem(
+        name='CMS',
+        label='CMS',
+        fa_icon='',
+        url_name=settings.DASHBOARD_URL_NAMES.get('cms_url')))
+
 site_navbars.register(bhp_utility_systems)
