@@ -11,4 +11,12 @@ bhp_utility_systems.append_item(
         fa_icon='',
         url_name=settings.DASHBOARD_URL_NAMES.get('procurement_url')))
 
+bhp_utility_systems.append_item(
+    NavbarItem(
+        name='document',
+        label='document',
+        fa_icon='',
+        url_name=settings.DASHBOARD_URL_NAMES.get('document_url')))
+
+
 site_navbars.register(bhp_utility_systems)

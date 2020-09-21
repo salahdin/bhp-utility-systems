@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
     'bhp_utility_systems.apps.AppConfig',
+    'document_tracking.apps.AppConfig',
+    'document_tracking_dashboard.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -156,6 +158,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utility_systems', 'static')
 # Dashboards
 
 DASHBOARD_URL_NAMES = {
+    'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
+    'document_url': 'document_tracking_dashboard:document_url',
     'procurement_url': 'procurement_dashboard:procurement_url',
     'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
     'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url'
@@ -165,6 +169,7 @@ LAB_DASHBOARD_URL_NAMES = {}
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
+    'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html'
 }
