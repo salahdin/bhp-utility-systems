@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
+    'edc_data_manager.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'procurement_dashboard.apps.AppConfig',
@@ -163,6 +164,7 @@ DASHBOARD_URL_NAMES = {
     'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'procurement_url': 'procurement_dashboard:procurement_url',
     'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
     'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url',
@@ -189,6 +191,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     # CMS templates
     'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',
     'allcontracts_listboard_template': 'cms_dashboard/contract/'
