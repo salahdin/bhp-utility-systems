@@ -160,6 +160,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utility_systems', 'static')
 # Dashboards
 
 DASHBOARD_URL_NAMES = {
+    'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
     'procurement_url': 'procurement_dashboard:procurement_url',
@@ -184,6 +185,7 @@ LAB_DASHBOARD_URL_NAMES = {}
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
+    'document_dashboard_template': 'document_tracking_dashboard/document/document_dashboard.html',
     'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
