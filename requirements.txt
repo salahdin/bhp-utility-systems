@@ -28,3 +28,4 @@ git+https://github.com/Botswana-Harvard-Utility-Systems/cms-dashboard.git@develo
 git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking-dashboard.git@develop#egg=document_tracking_dashboard
 git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking.git@develop#egg=document_tracking
 --pre xhtml2pdf
+django_admin_listfilter_dropdown
