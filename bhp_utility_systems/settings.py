@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
+    'edc_data_manager.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'procurement_dashboard.apps.AppConfig',
@@ -63,6 +64,9 @@ INSTALLED_APPS = [
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
     'bhp_utility_systems.apps.AppConfig',
+    'document_tracking.apps.AppConfig',
+    'document_tracking_dashboard.apps.AppConfig',
+    'django_admin_listfilter_dropdown',
 ]
 
 MIDDLEWARE = [
@@ -159,6 +163,7 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 # Dashboards
 
 DASHBOARD_URL_NAMES = {
+    'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'procurement_url': 'procurement_dashboard:procurement_url',
     'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
     'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url',
@@ -174,7 +179,12 @@ DASHBOARD_URL_NAMES = {
     'consultant_listboard_url': 'cms_dashboard:consultant_listboard_url',
     'consultant_dashboard_url': 'cms_dashboard:consultant_dashboard_url',
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
-    'cms_url': 'cms_dashboard:cms_url'
+    'cms_url': 'cms_dashboard:cms_url',
+    # Document tracking
+    'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
+    'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
+    'document_url': 'document_tracking_dashboard:document_url',
+    'sent_document_listboard_url': 'document_tracking_dashboard:sent_document_listboard_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -183,6 +193,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
+    'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     # CMS templates
     'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',
     'allcontracts_listboard_template': 'cms_dashboard/contract/'
@@ -194,6 +205,10 @@ DASHBOARD_BASE_TEMPLATES = {
     'pi_listboard_template': 'cms_dashboard/pi/pi_listboard.html',
     'consultant_listboard_template': 'cms_dashboard/consultant/consultant_listboard.html',
     'consultant_dashboard_template': 'cms_dashboard/consultant/consultant_dashboard.html',
+    # Document Tracking
+    'document_dashboard_template': 'document_tracking_dashboard/document/document_dashboard.html',
+    'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
+    'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

@@ -8,8 +8,15 @@ bhp_utility_systems.append_item(
     NavbarItem(
         name='procurement',
         label='Procurement',
-        fa_icon='',
+        fa_icon='fa fa-list-alt',
         url_name=settings.DASHBOARD_URL_NAMES.get('procurement_url')))
+
+bhp_utility_systems.append_item(
+    NavbarItem(
+        name='document',
+        label='document',
+        fa_icon='fas fa-file',
+        url_name=settings.DASHBOARD_URL_NAMES.get('document_url')))
 
 bhp_utility_systems.append_item(
     NavbarItem(

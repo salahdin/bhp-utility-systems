@@ -21,6 +21,8 @@ from django.urls import path, include
 from django.views.generic.base import RedirectView
 
 from edc_identifier.admin_site import edc_identifier_admin
+from edc_data_manager.admin_site import edc_data_manager_admin
+from document_tracking.admin_site import document_tracking_admin
 from procurement.admin_site import procurement_admin
 from bhp_personnel.admin_site import bhp_personnel_admin
 
@@ -32,8 +34,10 @@ urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
 
+    path('admin/', document_tracking_admin.urls),
     path('admin/', procurement_admin.urls),
     path('admin/', bhp_personnel_admin.urls),
+    path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_identifier_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
@@ -45,9 +49,13 @@ urlpatterns = [
          name='bhp_personnel_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
+    path('edc_data_manager/', include('edc_data_manager.urls')),
     path('edc_device/', include('edc_device.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),
     path('edc_identifier/', include('edc_identifier.urls')),
+
+    path('document_tracking/', include('document_tracking.urls')),
+    path('document_tracking_dashboard/', include('document_tracking_dashboard.urls')),
 
     path('procurement/', include('procurement.urls')),
     path('procurement_dashboard/', include('procurement_dashboard.urls')),
