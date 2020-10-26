@@ -65,7 +65,7 @@ urlpatterns = [
     path('procurement_dashboard/', include('procurement_dashboard.urls')),
 
     path('bhp_personnel/', include('bhp_personnel.urls')),
-    path('personnel/', include('bhp_personnel_dashboard.urls')),
+    path('cms/', include('cms_dashboard.urls')),
 
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),

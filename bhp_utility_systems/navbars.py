@@ -19,9 +19,9 @@ bhp_utility_systems.append_item(
 
 bhp_utility_systems.append_item(
     NavbarItem(
-        name='bhp_personnel',
-        label='BHP Personnel',
+        name='cms',
+        label='CMS',
         fa_icon='fas fa-user',
-        url_name=settings.DASHBOARD_URL_NAMES.get('bhp_personnel_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('cms_url')))
 
 site_navbars.register(bhp_utility_systems)
