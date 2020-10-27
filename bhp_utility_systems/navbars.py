@@ -1,7 +1,6 @@
 from django.conf import settings
 from edc_navbar import NavbarItem, site_navbars, Navbar
 
-
 bhp_utility_systems = Navbar(name='bhp_utility_systems')
 
 bhp_utility_systems.append_item(
@@ -20,9 +19,9 @@ bhp_utility_systems.append_item(
 
 bhp_utility_systems.append_item(
     NavbarItem(
-        name='CMS',
+        name='cms',
         label='CMS',
-        fa_icon='',
+        fa_icon='fas fa-user',
         url_name=settings.DASHBOARD_URL_NAMES.get('cms_url')))
 
 site_navbars.register(bhp_utility_systems)

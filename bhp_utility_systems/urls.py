@@ -25,6 +25,7 @@ from edc_data_manager.admin_site import edc_data_manager_admin
 from document_tracking.admin_site import document_tracking_admin
 from procurement.admin_site import procurement_admin
 from bhp_personnel.admin_site import bhp_personnel_admin
+from timesheet.admin_site import timesheet_admin
 
 from .views import HomeView, AdministrationView
 
@@ -47,6 +48,9 @@ urlpatterns = [
     path('admin/bhp_personnel/',
          RedirectView.as_view(url='admin/bhp_personnel/'),
          name='bhp_personnel_models_url'),
+    path('admin/timesheet/',
+         RedirectView.as_view(url='admin/timesheet/'),
+         name='timesheet_models_url'),
 
     path('edc_base/', include('edc_base.urls')),
     path('edc_data_manager/', include('edc_data_manager.urls')),

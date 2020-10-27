@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'procurement.apps.AppConfig',
     'bhp_personnel.apps.AppConfig',
     'cms_dashboard.apps.AppConfig',
+    'timesheet.apps.AppConfig',
     'bhp_utility_systems.apps.EdcBaseAppConfig',
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
@@ -203,6 +204,7 @@ DASHBOARD_URL_NAMES = {
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
     'sent_document_listboard_url': 'document_tracking_dashboard:sent_document_listboard_url',
+
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
