@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+import configparser
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +39,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
+CONFIG_FILE = f'{APP_NAME}.ini'
+
+CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
+config = configparser.ConfigParser()
+config.read(CONFIG_PATH)
+
+# email configurations
+EMAIL_BACKEND = config['email_conf'].get('email_backend')
+EMAIL_HOST = config['email_conf'].get('email_host')
+EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
+EMAIL_PORT = config['email_conf'].get('email_port')
+EMAIL_HOST_USER = config['email_conf'].get('email_user')
+EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
+
 
 # Application definition
 
@@ -51,9 +66,10 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_extensions',
+    'django_js_reverse',
+    'edc_data_manager.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
-    'edc_data_manager.apps.AppConfig',
     'edc_model_admin.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'procurement_dashboard.apps.AppConfig',
@@ -138,11 +154,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -167,6 +183,8 @@ DASHBOARD_URL_NAMES = {
     'procurement_url': 'procurement_dashboard:procurement_url',
     'purchase_order_listboard_url': 'procurement_dashboard:purchase_order_listboard_url',
     'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url',
+    'purchase_req_listboard_url': 'procurement_dashboard:purchase_req_listboard_url',
+    'email_report_url': 'procurement_dashboard:email_report_url',
     # CMS url name
     'employee_dashboard_url': 'cms_dashboard:employee_dashboard_url',
     'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
@@ -192,6 +210,7 @@ LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
+    'purchase_req_listboard_template': 'procurement_dashboard/purchase_requisition/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     # CMS templates
