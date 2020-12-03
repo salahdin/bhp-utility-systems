@@ -204,7 +204,8 @@ DASHBOARD_URL_NAMES = {
     'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
-    'sent_document_listboard_url': 'document_tracking_dashboard:sent_document_listboard_url',
+    'group_documents_listboard_url': 'document_tracking_dashboard:group_documents_listboard_url',
+    'other_documents_listboard_url': 'document_tracking_dashboard:other_documents_listboard_url',
     'sent_listboard_url': 'document_tracking_dashboard:sent_listboard_url',
     #Timesheet
     'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
