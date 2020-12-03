@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'bhp_personnel.apps.AppConfig',
     'cms_dashboard.apps.AppConfig',
     'timesheet.apps.AppConfig',
+    'timesheet_dashboard.apps.AppConfig',
     'bhp_utility_systems.apps.EdcBaseAppConfig',
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
@@ -205,6 +206,8 @@ DASHBOARD_URL_NAMES = {
     'document_url': 'document_tracking_dashboard:document_url',
     'sent_document_listboard_url': 'document_tracking_dashboard:sent_document_listboard_url',
     'sent_listboard_url': 'document_tracking_dashboard:sent_listboard_url',
+    #Timesheet
+    'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
 
 }
 
@@ -231,6 +234,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'document_dashboard_template': 'document_tracking_dashboard/document/document_dashboard.html',
     'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
     'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
+    #Timesheet
+    'timesheet_listboard_template': 'timesheet_dashboard/listboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
