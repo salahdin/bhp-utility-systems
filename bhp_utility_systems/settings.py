@@ -204,9 +204,8 @@ DASHBOARD_URL_NAMES = {
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
     'group_documents_listboard_url': 'document_tracking_dashboard:group_documents_listboard_url',
-    'other_documents_listboard_url': 'document_tracking_dashboard:other_documents_listboard_url',
+    'sent_to_me_listboard_url': 'document_tracking_dashboard:sent_to_me_listboard_url',
     'sent_listboard_url': 'document_tracking_dashboard:sent_listboard_url',
-
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -232,8 +231,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'document_dashboard_template': 'document_tracking_dashboard/document/document_dashboard.html',
     'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
     'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
+    'sent_to_me_listboard_template': 'document_tracking_dashboard/document/sent_to_me_listboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 GIT_DIR = BASE_DIR
-
