@@ -40,6 +40,7 @@ urlpatterns = [
     path('admin/', bhp_personnel_admin.urls),
     path('admin/', edc_data_manager_admin.urls),
     path('admin/', edc_identifier_admin.urls),
+    path('admin/', timesheet_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
     path('admin/procurement/',
@@ -64,6 +65,9 @@ urlpatterns = [
     path('procurement/', include('procurement.urls')),
     path('procurement_dashboard/', include('procurement_dashboard.urls')),
 
+    path('timesheet/', include('timesheet.urls')),
+    path('timesheet_dashboard/', include('timesheet_dashboard.urls')),
+    
     path('bhp_personnel/', include('bhp_personnel.urls')),
     path('cms/', include('cms_dashboard.urls')),
 

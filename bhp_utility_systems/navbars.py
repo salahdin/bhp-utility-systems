@@ -24,4 +24,11 @@ bhp_utility_systems.append_item(
         fa_icon='fas fa-user',
         url_name=settings.DASHBOARD_URL_NAMES.get('cms_url')))
 
+bhp_utility_systems.append_item(
+    NavbarItem(
+        name='timesheet',
+        label='Timesheets',
+        fa_icon='fa fa-clock-o',
+        url_name=settings.DASHBOARD_URL_NAMES.get('timesheet_listboard_url')))
+
 site_navbars.register(bhp_utility_systems)
