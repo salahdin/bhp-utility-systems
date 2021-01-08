@@ -29,6 +29,6 @@ bhp_utility_systems.append_item(
         name='timesheet',
         label='Timesheets',
         fa_icon='fa fa-clock-o',
-        url_name=settings.DASHBOARD_URL_NAMES.get('timesheet_listboard_url')))
+        url_name=settings.DASHBOARD_URL_NAMES.get('timesheet_home_url')))
 
 site_navbars.register(bhp_utility_systems)

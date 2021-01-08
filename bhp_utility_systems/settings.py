@@ -33,6 +33,8 @@ ETC_DIR = '/etc/'
 
 SITE_ID = 40
 
+REVIEWER_SITE_ID = 1
+
 LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
@@ -46,12 +48,12 @@ config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
 # email configurations
-EMAIL_BACKEND = config['email_conf'].get('email_backend')
-EMAIL_HOST = config['email_conf'].get('email_host')
-EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
-EMAIL_PORT = config['email_conf'].get('email_port')
-EMAIL_HOST_USER = config['email_conf'].get('email_user')
-EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
+# EMAIL_BACKEND = config['email_conf'].get('email_backend')
+# EMAIL_HOST = config['email_conf'].get('email_host')
+# EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
+# EMAIL_PORT = config['email_conf'].get('email_port')
+# EMAIL_HOST_USER = config['email_conf'].get('email_user')
+# EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 
 
 # Application definition
@@ -210,6 +212,8 @@ DASHBOARD_URL_NAMES = {
 
     #Timesheet
     'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
+    'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
+    'timesheet_home_url': 'timesheet:timesheet_home_url',
 }
 
 LAB_DASHBOARD_URL_NAMES = {}
@@ -237,7 +241,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
     'sent_to_me_listboard_template': 'document_tracking_dashboard/document/sent_to_me_listboard.html',
     #Timesheet
-    'timesheet_listboard_template': 'timesheet_dashboard/listboard.html',
+    'timesheet_listboard_template': 'timesheet_dashboard/timesheet_listboard.html',
+    'timesheet_employee_listboard_template': 'timesheet_dashboard/employee_listboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
