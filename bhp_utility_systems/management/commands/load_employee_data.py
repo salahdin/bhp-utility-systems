@@ -46,9 +46,11 @@ class Command(BaseCommand):
             else:
                 options.update(hired_date=hired_date)
 
+            import pdb; pdb.set_trace()
+
             try:
                 Employee.objects.get(
-                    employee_code=data_item.get('employee_code'))
+                    employee_code=int(data_item.get('employee_code')))
             except Employee.DoesNotExist:
                 Employee.objects.create(**options)
                 created += 1
@@ -92,6 +94,7 @@ class Command(BaseCommand):
             'id',
             'site',
             'slug',
+            'studies',
             'subject_identifier', ]
         fields = []
         for field in Employee._meta.get_fields():
