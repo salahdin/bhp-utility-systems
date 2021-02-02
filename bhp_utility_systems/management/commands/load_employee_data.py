@@ -46,8 +46,6 @@ class Command(BaseCommand):
             else:
                 options.update(hired_date=hired_date)
 
-            import pdb; pdb.set_trace()
-
             try:
                 Employee.objects.get(
                     employee_code=int(data_item.get('employee_code')))
