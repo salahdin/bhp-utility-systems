@@ -13,7 +13,7 @@ bhp_utility_systems.append_item(
 bhp_utility_systems.append_item(
     NavbarItem(
         name='document',
-        label='document',
+        label='documents',
         fa_icon='fas fa-file',
         url_name=settings.DASHBOARD_URL_NAMES.get('document_url')))
 
