@@ -202,12 +202,17 @@ DASHBOARD_URL_NAMES = {
     'consultant_dashboard_url': 'cms_dashboard:consultant_dashboard_url',
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
     'cms_url': 'cms_dashboard:cms_url',
+
     # Document tracking
     'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
     'document_listboard_url': 'document_tracking_dashboard:document_listboard_url',
     'document_url': 'document_tracking_dashboard:document_url',
+    'hard_copy_document_listboard_url': 'document_tracking_dashboard:hard_copy_document_listboard_url',
+    'reception_docs_listboard_url': 'document_tracking_dashboard:reception_docs_listboard_url',
     'group_documents_listboard_url': 'document_tracking_dashboard:group_documents_listboard_url',
+    'send_hard_copy_listboard_url': 'document_tracking_dashboard:send_hard_copy_listboard_url',
     'sent_to_me_listboard_url': 'document_tracking_dashboard:sent_to_me_listboard_url',
+    'shared_documents_listboard_url': 'document_tracking_dashboard:shared_documents_listboard_url',
     'sent_listboard_url': 'document_tracking_dashboard:sent_listboard_url',
 
     #Timesheet
@@ -238,8 +243,12 @@ DASHBOARD_BASE_TEMPLATES = {
     # Document Tracking
     'document_dashboard_template': 'document_tracking_dashboard/document/document_dashboard.html',
     'document_listboard_template': 'document_tracking_dashboard/document/document_listboard.html',
+    'reception_docs_listboard_template': 'document_tracking_dashboard/document/reception_docs_listboard.html',
+    'hard_copy_document_listboard_template': 'document_tracking_dashboard/document/hard_copy_document_listboard.html',
+    'send_hard_copy_listboard_template': 'document_tracking_dashboard/document/send_hard_copy_listboard.html',
     'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
     'sent_to_me_listboard_template': 'document_tracking_dashboard/document/sent_to_me_listboard.html',
+    'shared_documents_listboard_template': 'document_tracking_dashboard/document/shared_documents_listboard.html',
     #Timesheet
     'timesheet_listboard_template': 'timesheet_dashboard/timesheet_listboard.html',
     'timesheet_employee_listboard_template': 'timesheet_dashboard/employee_listboard.html',
