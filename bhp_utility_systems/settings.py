@@ -29,7 +29,7 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ETC_DIR = '/etc/'
+ETC_DIR = '/etc/utility'
 
 SITE_ID = 40
 
@@ -43,7 +43,7 @@ ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
-CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
+CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
 config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
@@ -128,8 +128,10 @@ WSGI_APPLICATION = 'bhp_utility_systems.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        }
     }
 }
 
@@ -220,8 +222,6 @@ DASHBOARD_URL_NAMES = {
     'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
     'timesheet_home_url': 'timesheet:timesheet_home_url',
 }
-
-LAB_DASHBOARD_URL_NAMES = {}
 
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'bhp_utility_systems/base.html',
