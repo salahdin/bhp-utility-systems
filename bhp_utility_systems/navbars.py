@@ -28,7 +28,7 @@ bhp_utility_systems.append_item(
     NavbarItem(
         name='timesheet',
         label='Timesheets',
-        fa_icon='fa fa-clock-o',
+        fa_icon='fas fa-stopwatch',
         url_name=settings.DASHBOARD_URL_NAMES.get('timesheet_home_url')))
 
 site_navbars.register(bhp_utility_systems)
