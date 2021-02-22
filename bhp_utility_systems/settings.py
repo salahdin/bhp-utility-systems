@@ -10,9 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import configparser
 import os
+import sys
+
+import configparser
+from django.core.management.color import color_style
 from pathlib import Path
+
+# from .logging import LOGGING
+style = color_style()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +35,7 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ETC_DIR = '/etc/utility'
+ETC_DIR = os.path.join('/etc/', APP_NAME)
 
 SITE_ID = 40
 
@@ -43,17 +49,20 @@ ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
+MAX_UPLOAD_SIZE = "1001440"
+
 CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
+sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
 config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
 # email configurations
-# EMAIL_BACKEND = config['email_conf'].get('email_backend')
-# EMAIL_HOST = config['email_conf'].get('email_host')
-# EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
-# EMAIL_PORT = config['email_conf'].get('email_port')
-# EMAIL_HOST_USER = config['email_conf'].get('email_user')
-# EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
+EMAIL_BACKEND = config['email_conf'].get('email_backend')
+EMAIL_HOST = config['email_conf'].get('email_host')
+EMAIL_USE_TLS = config['email_conf'].get('email_use_tls')
+EMAIL_PORT = config['email_conf'].get('email_port')
+EMAIL_HOST_USER = config['email_conf'].get('email_user')
+EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 
 
 # Application definition
@@ -221,6 +230,7 @@ DASHBOARD_URL_NAMES = {
     'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
     'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
     'timesheet_home_url': 'timesheet:timesheet_home_url',
+    'timesheet_calendar_table_url': 'timesheet_dashboard:timesheet_calendar_table_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
