@@ -45,7 +45,7 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1', '10.113.201.182']
+ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
