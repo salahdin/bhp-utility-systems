@@ -29,7 +29,7 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ETC_DIR = '/etc/utility'
+ETC_DIR = '/etc/bhp_utility_systems'
 
 SITE_ID = 40
 
@@ -39,7 +39,7 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1', '10.113.201.182']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
@@ -124,13 +124,20 @@ WSGI_APPLICATION = 'bhp_utility_systems.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+# 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+#         }
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -190,6 +197,8 @@ DASHBOARD_URL_NAMES = {
     'purchase_order_report_url': 'procurement_dashboard:purchase_order_report_url',
     'purchase_req_listboard_url': 'procurement_dashboard:purchase_req_listboard_url',
     'email_report_url': 'procurement_dashboard:email_report_url',
+    'credit_card_listboard_url': 'procurement_dashboard:credit_card_listboard_url',
+
     # CMS url name
     'employee_dashboard_url': 'cms_dashboard:employee_dashboard_url',
     'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
@@ -227,6 +236,8 @@ DASHBOARD_BASE_TEMPLATES = {
     'purchase_order_listboard_template': 'procurement_dashboard/purchase_order/listboard.html',
     'purchase_req_listboard_template': 'procurement_dashboard/purchase_requisition/listboard.html',
     'purchase_order_report_template': 'procurement_dashboard/purchase_order/report.html',
+    'credit_card_listboard_template': 'procurement_dashboard/credit_card/listboard.html',
+
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     # CMS templates
     'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',

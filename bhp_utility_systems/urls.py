@@ -67,7 +67,7 @@ urlpatterns = [
 
     path('timesheet/', include('timesheet.urls')),
     path('timesheet_dashboard/', include('timesheet_dashboard.urls')),
-    
+
     path('bhp_personnel/', include('bhp_personnel.urls')),
     path('cms/', include('cms_dashboard.urls')),
 
