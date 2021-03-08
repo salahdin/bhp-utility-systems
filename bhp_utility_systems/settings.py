@@ -10,9 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-import configparser
 import os
+import sys
+
+import configparser
+from django.core.management.color import color_style
 from pathlib import Path
+
+# from .logging import LOGGING
+style = color_style()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +49,10 @@ ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1', '10.113.201.182']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
+MAX_UPLOAD_SIZE = "1001440"
+
 CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
+sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
 config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
@@ -229,6 +238,7 @@ DASHBOARD_URL_NAMES = {
     'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
     'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
     'timesheet_home_url': 'timesheet:timesheet_home_url',
+    'timesheet_calendar_table_url': 'timesheet_dashboard:timesheet_calendar_table_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
