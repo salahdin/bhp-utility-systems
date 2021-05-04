@@ -36,3 +36,4 @@ django-admin-list-filter-dropdown
 pdf2image
 django_q
 xlwt
+xhtml2pdf
