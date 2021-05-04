@@ -45,7 +45,7 @@ LOGIN_REDIRECT_URL = 'home_url'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1', '10.113.201.182']
+ALLOWED_HOSTS = ['bhpus.bhp.org.bw', 'localhost', '127.0.0.1']
 
 CONFIG_FILE = f'{APP_NAME}.ini'
 
@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'bhp_utility_systems.apps.EdcBaseAppConfig',
     'bhp_utility_systems.apps.EdcProtocolAppConfig',
     'bhp_utility_systems.apps.EdcIdentifierAppConfig',
+    'bhp_utility_systems.apps.EdcFacilityAppConfig',
     'bhp_utility_systems.apps.AppConfig',
     'document_tracking.apps.AppConfig',
     'document_tracking_dashboard.apps.AppConfig',
@@ -133,15 +134,6 @@ WSGI_APPLICATION = 'bhp_utility_systems.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-# 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'OPTIONS': {
-#             'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-#         }
-#     }
-# }
 
 DATABASES = {
     'default': {
@@ -186,6 +178,10 @@ USE_TZ = True
 SITE_CODE = '40'
 
 DEFAULT_STUDY_SITE = '40'
+
+# edc_facility
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+COUNTRY = 'botswana'
 
 
 # Static files (CSS, JavaScript, Images)
