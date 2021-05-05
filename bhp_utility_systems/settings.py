@@ -235,6 +235,7 @@ DASHBOARD_URL_NAMES = {
     'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
     'timesheet_home_url': 'timesheet:timesheet_home_url',
     'timesheet_calendar_table_url': 'timesheet_dashboard:timesheet_calendar_table_url',
+    'reports_dashboard_url': 'timesheet_dashboard:reports_dashboard_url',
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -268,6 +269,7 @@ DASHBOARD_BASE_TEMPLATES = {
     #Timesheet
     'timesheet_listboard_template': 'timesheet_dashboard/timesheet_listboard.html',
     'timesheet_employee_listboard_template': 'timesheet_dashboard/employee_listboard.html',
+    'reports_dashboard_template': 'timesheet_dashboard/reports/dashboard.html',
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
