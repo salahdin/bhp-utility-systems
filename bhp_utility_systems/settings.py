@@ -35,8 +35,6 @@ SECRET_KEY = '8g!)(+a#0*pv1n+ui5*dqw2axymk+)dh=^3zec#n4sels7!h1p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-AUTO_CREATE_KEYS = True
-
 ETC_DIR = '/etc/bhp_utility_systems'
 
 SITE_ID = 40
@@ -79,6 +77,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_extensions',
+    'django_q',
     'django_js_reverse',
     'edc_data_manager.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
