@@ -206,6 +206,8 @@ DASHBOARD_URL_NAMES = {
     'credit_card_listboard_url': 'procurement_dashboard:credit_card_listboard_url',
 
     # CMS url name
+    'appraisal_dashboard_url': 'cms_dashboard:appraisal_dashboard_url',
+    'appraisal_listboard_url': 'cms_dashboard:appraisal_listboard_url',
     'employee_dashboard_url': 'cms_dashboard:employee_dashboard_url',
     'employee_listboard_url': 'cms_dashboard:employee_listboard_url',
     'emp_contract_listboard_url': 'cms_dashboard:emp_contract_listboard_url',
@@ -217,6 +219,7 @@ DASHBOARD_URL_NAMES = {
     'consultant_listboard_url': 'cms_dashboard:consultant_listboard_url',
     'consultant_dashboard_url': 'cms_dashboard:consultant_dashboard_url',
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
+    'contact_listboard_url': 'edc_sms:contact_listboard_url',
     'cms_url': 'cms_dashboard:cms_url',
 
     # Document tracking
@@ -248,6 +251,8 @@ DASHBOARD_BASE_TEMPLATES = {
 
     'data_manager_listboard_template': 'edc_data_manager/listboard.html',
     # CMS templates
+    'appraisal_dashboard_template': 'cms_dashboard/employee/appraisal_dashboard.html',
+    'appraisal_listboard_template': 'cms_dashboard/employee/appraisal_listboard.html',
     'contract_listboard_template': 'cms_dashboard/contract/contract_listboard.html',
     'allcontracts_listboard_template': 'cms_dashboard/contract/'
                                        'allcontracts_listboard.html',
