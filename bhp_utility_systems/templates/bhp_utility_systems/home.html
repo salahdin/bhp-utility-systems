@@ -7,7 +7,9 @@
 
 
 {% block extra-styles %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'bhp_utility_systems/css/style.css' %}">
+
 <style>
 .my-card
 {
@@ -22,6 +24,44 @@
 {% block main %}
 {% endblock main %}
 {% block extra-scripts-bottom %}
+
+<h1 style="margin-top: 10px">Utility Modules</h1>
+<hr style="width:500px;color: black;">
+<div class="wrapper" style="margin-top: 70px">
+<div class="card">
+	<h3 class="card-title">PROCUREMENT</h3>
+		<img src="{% static 'bhp_utility_systems/images/pro.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        <a href="{% url 'procurement_dashboard:procurement_url' %}">
+              <button class="card-btn">OPEN PROCUREMENT</button>
+        </a>
+        </div>
+	<div class="card">
+		<h3 class="card-title">TIMESHEETS</h3>
+		<img src="{% static 'bhp_utility_systems/images/time-sheet.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        <a href="{% url 'timesheet:timesheet_home_url' %}">
+          <button class="card-btn">OPEN TIMESHEET</button>
+        </a>
+	</div>
+    <div class="card">
+	<h3 class="card-title">DOCUMENT TRACKING</h3>
+		<img src="{% static 'bhp_utility_systems/images/documents.png' %}" alt="Image" class="img-feature img-fluid" style="width:255px;margin-top: 33px">
+        <a href="{% url 'document_tracking_dashboard:document_url' %}">
+          <button class="card-btn">OPEN DOCUMENTS</button>
+        </a>
+	</div>
+	<div class="card">
+		<h3 class="card-title">CONTRACT MANAGEMENT</h3>
+		<img src="{% static 'bhp_utility_systems/images/contrac.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        
+        <a href="{% url 'cms_dashboard:cms_url' %}">
+          <button class="card-btn">OPEN CONTRACT</button>
+        </a>
+	</div>
+	
+</div>
+
+
+
 <script>
 
 </script>

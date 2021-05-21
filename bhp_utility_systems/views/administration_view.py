@@ -7,5 +7,5 @@ from edc_navbar import NavbarViewMixin
 class AdministrationView(EdcBaseViewMixin, NavbarViewMixin,
                          AdministrationViewMixin, TemplateView):
 
-    navbar_name = 'bhp_utility_systems'
+    navbar_name = 'default'
     navbar_selected_item = 'administration'

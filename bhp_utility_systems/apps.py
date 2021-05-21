@@ -5,6 +5,7 @@ from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
+from edc_navbar.apps import AppConfig as BaseEdcNavbarAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 
 
@@ -42,3 +43,6 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
     identifier_prefix = '199'
+
+class EdcNavBarAppConfig(BaseEdcNavbarAppConfig):
+    default_navbar_name = 'default'
