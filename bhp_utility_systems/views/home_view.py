@@ -6,5 +6,5 @@ from edc_navbar import NavbarViewMixin
 class HomeView(EdcBaseViewMixin, NavbarViewMixin, TemplateView):
 
     template_name = 'bhp_utility_systems/home.html'
-    navbar_name = 'bhp_utility_systems'
+    navbar_name = 'default'
     navbar_selected_item = 'home'
