@@ -51,7 +51,7 @@
      font-weight: 600;
      transition: all 0.5s;
      cursor: pointer;
-     letter-spacing: 1.2px;
+     letter-spacing: 1.0px;
 }
  .card-btn:hover{
     color:#02b875;
@@ -68,4 +68,46 @@
 a:link {
     text-decoration: none;
     color:#FFF;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.wrapper{
+  overflow:hidden;
+  /*display:grid;*/
+  place-content:center;
+  text-align:center;
+  margin-top: 5px;
+}
+.wrapper h1{
+  font-size:1px;
+  margin:70px 0 10px;
+}
+.time{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:13px;
+}
+.time div{
+  width:70px;
+  height:70px;
+  border:2px solid #fff;
+  border-radius:50%;
+  display:grid;
+  place-content:center;
+}
+.time div p:first-child{
+  font-size:1.1em;
+}
+.time div p:last-child{
+  font-size:.7em;
+}
+.time > span{
+  margin:-10px;
+  font-size:1.4em;
+}
+.dev{
+  position:absolute;
+  bottom:10px;
+  right:10px;
 }
