@@ -29,7 +29,6 @@ from timesheet.admin_site import timesheet_admin
 
 from .views import HomeView, AdministrationView
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('edc_base.auth.urls')),

@@ -38,3 +38,4 @@ django_q
 xlwt
 xhtml2pdf
 mysqlclient
+pandas
