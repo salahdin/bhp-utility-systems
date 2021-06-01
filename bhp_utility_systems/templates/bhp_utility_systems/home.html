@@ -7,7 +7,11 @@
 
 
 {% block extra-styles %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'bhp_utility_systems/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bhp_utility_systems/css/timer.css' %}">
+    <script src="{% static 'bhp_utility_systems/js/timer.js' %}"></script>
+
 <style>
 .my-card
 {
@@ -22,7 +26,88 @@
 {% block main %}
 {% endblock main %}
 {% block extra-scripts-bottom %}
-<script>
 
-</script>
+<h1 style="margin-top: 10px">Utility Modules</h1>
+<hr style="width:500px;color: black;">
+<div class="wrapper" style="margin-top: 70px">
+<div class="card">
+	<h3 class="card-title">PROCUREMENT</h3>
+		<img src="{% static 'bhp_utility_systems/images/pro.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        <a href="{% url 'procurement_dashboard:procurement_url' %}">
+              <button class="card-btn" style="display: none" id="procurement">OPEN PROCUREMENT</button>
+        </a>
+    <div class="wrapper" id="wrapper">
+        <h4>WE ARE LAUNCHING IN</h4>
+    <div class="time">
+      <div class="day"><p id="day">00</p><p>days</p></div>
+         <span>:</span>
+      <div class="hour"><p id="hour">00</p><p>hours</p></div>
+        <span>:</span>
+      <div class="minute"><p id="minute">00</p><p>minutes</p></div>
+        <span>:</span>
+      <div class="second"><p id="second">00</p><p>seconds</p></div>
+    </div>
+  </div>
+        </div>
+	<div class="card">
+		<h3 class="card-title">TIMESHEETS</h3>
+		<img src="{% static 'bhp_utility_systems/images/time-sheet.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        <a href="{% url 'timesheet:timesheet_home_url' %}">
+          <button class="card-btn" style="display: none" id="timesheet">OPEN TIMESHEET</button>
+        </a>
+        <div class="wrapper" id="wrapper1">
+             <h4>WE ARE LAUNCHING IN</h4>
+    <div class="time">
+      <div class="day"><p id="day1">00</p><p>days</p></div>
+         <span>:</span>
+      <div class="hour"><p id="hour1">00</p><p>hours</p></div>
+        <span>:</span>
+      <div class="minute"><p id="minute1">00</p><p>minutes</p></div>
+        <span>:</span>
+      <div class="second"><p id="second1">00</p><p>seconds</p></div>
+    </div>
+  </div>
+	</div>
+    <div class="card">
+	<h3 class="card-title">DOCUMENT TRACKING</h3>
+		<img src="{% static 'bhp_utility_systems/images/documents.png' %}" alt="Image" class="img-feature img-fluid" style="width:255px;margin-top: 33px">
+        <a href="{% url 'document_tracking_dashboard:document_url' %}">
+          <button class="card-btn"style="display: none" id="documents">OPEN DOCUMENTS</button>
+        </a>
+        <div class="wrapper" id="wrapper2">
+             <h4>WE ARE LAUNCHING IN</h4>
+    <div class="time">
+      <div class="day"><p id="day2">00</p><p>days</p></div>
+         <span>:</span>
+      <div class="hour"><p id="hour2">00</p><p>hours</p></div>
+        <span>:</span>
+      <div class="minute"><p id="minute2">00</p><p>minutes</p></div>
+        <span>:</span>
+      <div class="second"><p id="second2">00</p><p>seconds</p></div>
+    </div>
+  </div>
+	</div>
+	<div class="card">
+		<h3 class="card-title">CONTRACT MANAGEMENT</h3>
+		<img src="{% static 'bhp_utility_systems/images/contrac.png' %}" alt="Image" class="img-feature img-fluid" style="width:300px">
+        <div >
+        <a href="{% url 'cms_dashboard:cms_url' %}">
+          <button class="card-btn" style="display: none" id="contract">OPEN CONTRACT</button>
+        </a>
+            </div>
+        <div class="wrapper" id="wrapper3">
+             <h4>WE ARE LAUNCHING IN</h4>
+    <div class="time">
+      <div class="day"><p id="day3">00</p><p>days</p></div>
+         <span>:</span>
+      <div class="hour"><p id="hour3">00</p><p>hours</p></div>
+        <span>:</span>
+      <div class="minute"><p id="minute3">00</p><p>minutes</p></div>
+        <span>:</span>
+      <div class="second"><p id="second3">00</p><p>seconds</p></div>
+    </div>
+  </div>
+	</div>
+	
+</div>
 {% endblock %}
