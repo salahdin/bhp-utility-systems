@@ -1,6 +1,10 @@
 // Set the date we're counting down to
-const countDownDate = new Date("2021-07-01 23:59").getTime();
-const countDownDate2 = new Date("2021-06-01 23:59").getTime();
+var dateTimeString1 = '2021-07-01' + 'T00:00:00.000';
+var dateTimeString2 = '2021-06-01' + 'T00:00:00.000';
+
+const countDownDate = new Date(dateTimeString1).getTime();
+
+const countDownDate2 = new Date(dateTimeString2).getTime();
 
 // Update the count down every 1 second
 const x = setInterval(function () {
@@ -60,8 +64,5 @@ const x = setInterval(function () {
     if (distance2 < 0) {
         document.getElementById("wrapper1").style.display = "none";
         document.getElementById("timesheet").style.display = "block";
-
-
-
     }
 }, 1000);
