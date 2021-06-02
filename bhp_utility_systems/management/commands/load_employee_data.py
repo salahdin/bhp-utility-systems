@@ -16,28 +16,54 @@ class Command(BaseCommand):
         created = 0
         file_path = kwargs['file_path']
         data = self.data(file_path=file_path)
-
+        count = 0
+        phone_count = 10
+        phone_count1 = 10
         for data_item in data:
+
             options = {}
             for field_name in self.all_model_fields:
                 if field_name == 'supervisor':
                     s_details = data_item.get(field_name).split("|")
-                    supervisor, created = Supervisor.objects.get_or_create(
-                        first_name=s_details[0],
-                        last_name=s_details[1],
-                        cell=s_details[2],
-                        email=s_details[3])
+                    if len(s_details) == 1:
+                        s_details = data_item.get(field_name).split(" ")
+                    if len(s_details) == 4:
+                        supervisor, created = Supervisor.objects.get_or_create(
+                            first_name=s_details[0],
+                            last_name=s_details[1],
+                            cell=s_details[2],
+                            email=s_details[3])
+                    else:
+                        try:
+                            supervisor = Supervisor.objects.get(
+                                first_name=s_details[0],
+                                last_name=s_details[1])
+                        except Supervisor.DoesNotExist:
+                            cell = '712111'+ str(phone_count)
+                            self.stdout.write(
+                                self.style.WARNING(f'Cell {cell}'))
+                            supervisor, created = Supervisor.objects.get_or_create(
+                                first_name=s_details[0],
+                                last_name=s_details[1],
+                                cell=cell,
+                                email=s_details[0][0]+s_details[1][1:]+'@bhp.org.bw')
+                            phone_count += 1
                     options[field_name] = supervisor
 
                 elif field_name == 'department':
                     d_details = data_item.get(field_name).split("|")
-                    dept, created = Department.objects.get_or_create(
-                        hod=d_details[0],
-                        dept_name=d_details[1])
+                    if len(d_details) > 1:
+                        dept, created = Department.objects.get_or_create(
+                            hod=d_details[0],
+                            dept_name=d_details[1])
+                    else:
+                        dept, created = Department.objects.get_or_create(
+                            hod=d_details[0],
+                            dept_name='Admin')
                     options[field_name] = dept
                 else:
                     options[field_name] = data_item.get(field_name)
-
+            
             # Convert date to date objects
             try:
                 hired_date = parser.parse(options.get('hired_date')).date()
@@ -50,10 +76,16 @@ class Command(BaseCommand):
                 Employee.objects.get(
                     employee_code=int(data_item.get('employee_code')))
             except Employee.DoesNotExist:
+                if options.get('cell') == '':
+                    options['cell'] = '712111'+ str(phone_count1)
+                    phone_count1 += 1
                 Employee.objects.create(**options)
                 created += 1
             else:
                 already_exists += 1
+            count += 1
+            self.stdout.write(
+                self.style.SUCCESS(f'Count {count}'))
         self.stdout.write(
             self.style.SUCCESS(f'A total of {created} have been created'))
         self.stdout.write(
