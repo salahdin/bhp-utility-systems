@@ -46,7 +46,7 @@ class Command(BaseCommand):
                                 first_name=s_details[0],
                                 last_name=s_details[1],
                                 cell=cell,
-                                email=s_details[0][0]+s_details[1][1:]+'@bhp.org.bw')
+                                email=(s_details[0][0]+s_details[1]+'@bhp.org.bw').lower())
                             phone_count += 1
                     options[field_name] = supervisor
 
