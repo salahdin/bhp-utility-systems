@@ -52,7 +52,7 @@ CONFIG_FILE = f'{APP_NAME}.ini'
 MAX_UPLOAD_SIZE = "1001440"
 
 CONFIG_PATH = os.path.join(ETC_DIR, CONFIG_FILE)
-sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_FILE}\n'))
+sys.stdout.write(style.SUCCESS(f'  * Reading config from {CONFIG_PATH}\n'))
 config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_q',
     'django_js_reverse',
+    'crispy_forms',
     'edc_data_manager.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
@@ -137,6 +138,7 @@ WSGI_APPLICATION = 'bhp_utility_systems.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 mysql_config = configparser.ConfigParser()
 mysql_config.read(os.path.join(ETC_DIR, 'mysql.ini'))
+
 
 HOST = mysql_config['mysql']['host']
 DB_USER = mysql_config['mysql']['user']
