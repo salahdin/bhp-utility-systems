@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_q',
     'django_js_reverse',
+    'crispy_forms',
     'edc_data_manager.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_device.apps.AppConfig',
