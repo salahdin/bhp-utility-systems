@@ -31,3 +31,12 @@ git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking-dashbo
 git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking.git@0.1.1#egg=document-tracking
 git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet.git@0.1.1#egg=timesheet
 git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet-dashboard.git@0.1.2#egg=timesheet-dashboard
+--pre xhtml2pdf
+django-admin-list-filter-dropdown
+pdf2image
+django_q
+xlwt
+xhtml2pdf
+mysqlclient
+pandas
+django-crispy-forms
