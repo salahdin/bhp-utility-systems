@@ -64,7 +64,6 @@ EMAIL_PORT = config['email_conf'].get('email_port')
 EMAIL_HOST_USER = config['email_conf'].get('email_user')
 EMAIL_HOST_PASSWORD = config['email_conf'].get('email_host_pwd')
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -139,12 +138,18 @@ WSGI_APPLICATION = 'bhp_utility_systems.wsgi.application'
 mysql_config = configparser.ConfigParser()
 mysql_config.read(os.path.join(ETC_DIR, 'mysql.ini'))
 
-
 HOST = mysql_config['mysql']['host']
 DB_USER = mysql_config['mysql']['user']
 DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'test.sqlite',
+#     }
+#  }
 
 DATABASES = {
     'default': {
@@ -152,13 +157,12 @@ DATABASES = {
         'NAME': DB_NAME,
         'USER': DB_USER,
         'PASSWORD': DB_PASSWORD,
-        'HOST': HOST,   # Or an IP Address that your DB is hosted on
+        'HOST': HOST,  # Or an IP Address that your DB is hosted on
         'PORT': PORT,
         "init_command": "SET foreign_key_checks = 0;",
     }
 
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -177,7 +181,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -199,7 +202,6 @@ DEFAULT_STUDY_SITE = '40'
 # edc_facility
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -250,7 +252,7 @@ DASHBOARD_URL_NAMES = {
     'shared_documents_listboard_url': 'document_tracking_dashboard:shared_documents_listboard_url',
     'sent_listboard_url': 'document_tracking_dashboard:sent_listboard_url',
 
-    #Timesheet
+    # Timesheet
     'timesheet_listboard_url': 'timesheet_dashboard:timesheet_listboard_url',
     'timesheet_employee_listboard_url': 'timesheet_dashboard:timesheet_employee_listboard_url',
     'timesheet_home_url': 'timesheet:timesheet_home_url',
@@ -288,7 +290,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'sent_document_listboard_template': 'document_tracking_dashboard/document/sent_document_listboard.html',
     'sent_to_me_listboard_template': 'document_tracking_dashboard/document/sent_to_me_listboard.html',
     'shared_documents_listboard_template': 'document_tracking_dashboard/document/shared_documents_listboard.html',
-    #Timesheet
+    # Timesheet
     'timesheet_listboard_template': 'timesheet_dashboard/timesheet_listboard.html',
     'timesheet_employee_listboard_template': 'timesheet_dashboard/employee_listboard.html',
     'reports_dashboard_template': 'timesheet_dashboard/reports/dashboard.html',
