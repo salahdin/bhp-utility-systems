@@ -146,6 +146,13 @@ DB_PASSWORD = mysql_config['mysql']['password']
 DB_NAME = mysql_config['mysql']['database']
 PORT = mysql_config['mysql']['port']
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': 'test.sqlite',
+#     }
+#  }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
