@@ -18,17 +18,24 @@ class Command(BaseCommand):
             """
 
             reset_url = f"https://{get_current_site(request=None).domain}/password-reset/"  # current domain
+            site_url = f"https://{get_current_site(request=None).domain}"  # current domain
 
             user_email = user.email  # user email
             frm = "bhp.se.dmc@gmail.com"  # from email
             subject = 'Time Sheet Activation Link'  # subject of the email
             message = f"""\
-                Hi, <b>{user.first_name}</b>,
+                Hi {user.first_name} {user.last_name},
                 <br>
                 <br>
-                Set your new password using the link below.
+                Your account for the BHP Timesheet System has been set up. The url to access the system is <a href="{site_url}" target="_blank">{site_url}</a>.
+                 <br>
+                 To activate your account, set the password first using the link below. 
                 <br>
-                <a href="{reset_url}" target="_blank">Click to set password</a>
+                <br>
+                <a href="{reset_url}" target="_blank">Reset Password</a>
+                <br>
+                <br>     
+                Good Day 😃
                 """
 
             msg = EmailMultiAlternatives(subject, message, frm, (user_email,))
