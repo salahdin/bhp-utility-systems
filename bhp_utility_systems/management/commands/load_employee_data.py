@@ -1,7 +1,5 @@
 from dateutil import parser
-
 from django.core.management.base import BaseCommand
-
 from bhp_personnel.models import Employee, Supervisor, Department
 
 

@@ -5,10 +5,27 @@ from django.contrib.sites.shortcuts import get_current_site
 
 
 class Command(BaseCommand):
-    help = 'Send emails'
+    help = 'Send employee activation emails'
+
+    def add_arguments(self, parser):
+        parser.add_argument('user_email', type=str, help='Employee email')
 
     def handle(self, *args, **kwargs):
-        users = User.objects.all()
+        users = []
+        user_email = kwargs['user_email']
+        if '@' in user_email:
+            try:
+                user = User.objects.get(email=user_email)
+            except User.DoesNotExist:
+                self.stdout.write(
+                    self.style.WARNING(f'The employee with the specified email does '
+                                       'not exist.'))
+            else:
+                users = [user, ]
+        else:
+            users = User.objects.filter(first_name__isnull=False,
+                                        last_name__isnull=False,
+                                        email__isnull=False)
         print('Preparing')
 
         # (subject, message, from_email, recipient_list)
@@ -34,7 +51,7 @@ class Command(BaseCommand):
                 <br>
                 <a href="{reset_url}" target="_blank">Reset Password</a>
                 <br>
-                <br>     
+                <br>
                 Good Day 😃
                 """
 
