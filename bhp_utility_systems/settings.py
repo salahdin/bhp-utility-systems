@@ -203,6 +203,8 @@ DEFAULT_STUDY_SITE = '40'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
 
+CELLPHONE_REGEX = '^[7]{1}[12345678]{1}[0-9]{6}$|^[2-8]{1}[0-9]{6}$'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

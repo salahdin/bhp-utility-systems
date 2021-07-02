@@ -30,8 +30,6 @@ from timesheet.admin_site import timesheet_admin
 
 from .views import HomeView, AdministrationView
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('edc_base.auth.urls')),
@@ -79,16 +77,13 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home_url'),
 ]
 
-
-
 urlpatterns += [
     path('change-password/',
-        auth_views.PasswordChangeView.as_view(
+         auth_views.PasswordChangeView.as_view(
             template_name='users/password_reset_change.html',
-            success_url = '/'
-        ),
-        name='change_password'
-    ),
+            success_url='/'),
+         name='change_password'
+         ),
     # Forget Password
     path('password-reset/',
          auth_views.PasswordResetView.as_view(
@@ -112,8 +107,6 @@ urlpatterns += [
          ),
          name='password_reset_complete'),
 ]
-
-
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
