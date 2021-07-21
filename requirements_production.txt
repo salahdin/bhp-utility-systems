@@ -29,8 +29,8 @@ git+https://github.com/Botswana-Harvard-Utility-Systems/bhp-personnel.git@0.1.3#
 git+https://github.com/Botswana-Harvard-Utility-Systems/bhp-personnel-dashboard.git@0.1.1#egg=bhp-personnel-dashboard
 git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking-dashboard.git@0.1.1#egg=document-tracking-dashboard
 git+https://github.com/Botswana-Harvard-Utility-Systems/document-tracking.git@0.1.1#egg=document-tracking
-git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet.git@0.1.3#egg=timesheet
-git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet-dashboard.git@0.1.3#egg=timesheet-dashboard
+git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet.git@0.1.4#egg=timesheet
+git+https://github.com/Botswana-Harvard-Utility-Systems/timesheet-dashboard.git@0.1.5#egg=timesheet-dashboard
 --pre xhtml2pdf
 django-admin-list-filter-dropdown
 pdf2image
