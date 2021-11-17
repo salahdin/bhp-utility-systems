@@ -1,6 +1,10 @@
+import datetime
+
 from dateutil import parser
 from django.core.management.base import BaseCommand
+import openpyxl
 from bhp_personnel.models import Employee, Supervisor, Department
+from django.db.utils import IntegrityError
 
 
 class Command(BaseCommand):
@@ -10,95 +14,96 @@ class Command(BaseCommand):
         parser.add_argument('file_path', type=str, help='Data fine path, csv file')
 
     def handle(self, *args, **kwargs):
-        already_exists = 0
-        created = 0
-        file_path = kwargs['file_path']
-        data = self.data(file_path=file_path)
-        count = 0
-        for data_item in data:
+        excel_path = kwargs['file_path']
+        self._load_data(excel_path)
 
-            options = {}
-            for field_name in self.all_model_fields:
-                if field_name == 'supervisor':
-                    s_details = data_item.get(field_name).strip()
-                    s_details = s_details.split("|")
-                    supervisor, created = Supervisor.objects.get_or_create(
-                        first_name=s_details[0],
-                        last_name=s_details[1],
-                        cell=s_details[3],
-                        email=s_details[2])
-                    options[field_name] = supervisor
+    def _load_data(self, excel_path: str):
+        workbook = openpyxl.load_workbook(excel_path)
+        sheet = workbook.active
 
-                elif field_name == 'department':
-                    d_details = data_item.get(field_name).split("|")
-                    dept, created = Department.objects.get_or_create(
-                        hod=d_details[1],
-                        dept_name=d_details[0])
-                    options[field_name] = dept
+        employee_objects = dict()
+
+        for row in sheet.iter_rows(values_only=True):
+
+            if not row[0]:
+                break
+            if row[0] == 'employee_code':
+                continue
+
+            employee_code = row[0]
+            last_name = row[1]
+            first_name = row[2]
+            department = row[3].split('|')[0]
+            hod = row[3].split('|')[1]
+            job_title = row[4]
+            hired_date = datetime.datetime.strptime(row[5], '%d/%m/%Y')
+            status = row[6]
+            gender = row[7]
+            cell = row[8].strip()
+            email = row[9]
+            supervisor_first_name = row[10].split('|')[0]
+            supervisor_last_name = row[10].split('|')[1]
+            supervisor_email = row[10].split('|')[2]
+            supervisor_cell = row[10].split('|')[3]
+
+            if not cell:
+                message = f'''\
+                ------------------------------------------
+                Message  : Missing contact info
+                Firstname : {first_name}
+                Lastname  : {last_name}
+                E-Mail    : {email}'''
+
+                self.stdout.write(
+                    self.style.WARNING(message))
+
+            else:
+
+                supervisor, created = Supervisor.objects.get_or_create(
+                    first_name=supervisor_first_name,
+                    last_name=supervisor_last_name,
+                    cell=supervisor_cell,
+                    email=supervisor_email)
+
+                dept, dept_created = Department.objects.get_or_create(
+                    hod=hod,
+                    dept_name=department)
+
+                employee_exists = Employee.objects.filter(employee_code=employee_code)
+
+                if not employee_exists:
+                    Employee.objects.create(
+                        employee_code=employee_code,
+                        email=email,
+                        job_title=job_title,
+                        supervisor=supervisor,
+                        hired_date=hired_date,
+                        gender=gender,
+                        department=dept,
+                        first_name=first_name,
+                        last_name=last_name,
+                        cell=cell
+
+                    )
+                    message = f'''\
+                    ------------------------------------------
+                    Message   : Employee created 
+                    Firstname : {first_name}
+                    Lastname  : {last_name}
+                    E-Mail    : {email} '''
+
+                    self.stdout.write(
+                        self.style.SUCCESS(message))
+
+
                 else:
-                    options[field_name] = data_item.get(field_name)
 
-            # Convert date to date objects
-            try:
-                hired_date = parser.parse(options.get('hired_date')).date()
-            except parser.ParserError:
-                options.update(hired_date=None)
-            else:
-                options.update(hired_date=hired_date)
+                    message = f'''\
+                    ------------------------------------------
+                    Message   : Employee already exist
+                    Firstname : {first_name}
+                    Lastname  : {last_name}
+                    E-Mail    : {email}'''
 
-            try:
-                Employee.objects.get(
-                    employee_code=int(data_item.get('employee_code')))
-            except Employee.DoesNotExist:
-                Employee.objects.create(**options)
-                created += 1
-            else:
-                already_exists += 1
-            count += 1
-            self.stdout.write(
-                self.style.SUCCESS(f'Count {count}'))
-        self.stdout.write(
-            self.style.SUCCESS(f'A total of {created} have been created'))
-        self.stdout.write(
-            self.style.WARNING(f'Total items {already_exists} already exist'))
-
-    def data(self, file_path=None):
-        data = []
-        f = open(file_path, 'r')
-        lines = f.readlines()
-        header = lines[0]
-        lines.pop(0)
-        header = header.strip()
-        header = header.split(',')
-        self.stdout.write(self.style.WARNING(f'Total items {len(lines)}'))
-        for line in lines:
-            line = line.strip()
-            line = line.split(',')
-            data_item = dict(zip(header, line))
-            data.append(data_item)
-        return data
-
-    @property
-    def all_model_fields(self):
-        """Returns a list of employee model fields.
-        """
-        exclude_fields = [
-            'created',
-            'modified',
-            'user_created',
-            'user_modified',
-            'hostname_created',
-            'hostname_modified',
-            'revision',
-            'device_created',
-            'device_modified',
-            'id',
-            'site',
-            'slug',
-            'studies',
-            'subject_identifier', ]
-        fields = []
-        for field in Employee._meta.get_fields():
-            if field.name not in exclude_fields:
-                fields.append(field.name)
-        return fields
+                    self.stdout.write(
+                        self.style.WARNING(message))
