@@ -1,10 +1,10 @@
+from bhp_personnel.models import Employee, Supervisor, Department
 import datetime
 
 from dateutil import parser
 from django.core.management.base import BaseCommand
-import openpyxl
-from bhp_personnel.models import Employee, Supervisor, Department
 from django.db.utils import IntegrityError
+import openpyxl
 
 
 class Command(BaseCommand):
@@ -39,7 +39,7 @@ class Command(BaseCommand):
             hired_date = datetime.datetime.strptime(row[5], '%d/%m/%Y')
             status = row[6]
             gender = row[7]
-            cell = row[8].strip()
+            cell = row[8].strip() if row[8] else None
             email = row[9]
             supervisor_first_name = row[10].split('|')[0]
             supervisor_last_name = row[10].split('|')[1]
@@ -58,20 +58,26 @@ class Command(BaseCommand):
                     self.style.WARNING(message))
 
             else:
+                try:
+                    supervisor = Supervisor.objects.get(
+                        first_name=supervisor_first_name,
+                        last_name=supervisor_last_name,)
+                except Supervisor.DoesNotExist:
+                    supervisor = Supervisor.objects.create(
+                        first_name=supervisor_first_name,
+                        last_name=supervisor_last_name,
+                        cell=supervisor_cell,
+                        email=supervisor_email)
 
-                supervisor, created = Supervisor.objects.get_or_create(
-                    first_name=supervisor_first_name,
-                    last_name=supervisor_last_name,
-                    cell=supervisor_cell,
-                    email=supervisor_email)
-
-                dept, dept_created = Department.objects.get_or_create(
+                dept, _ = Department.objects.get_or_create(
                     hod=hod,
                     dept_name=department)
 
-                employee_exists = Employee.objects.filter(employee_code=employee_code)
+                try:
+                    Employee.objects.get(employee_code=employee_code,
+                                         email=email)
+                except Employee.DoesNotExist:
 
-                if not employee_exists:
                     Employee.objects.create(
                         employee_code=employee_code,
                         email=email,
@@ -94,7 +100,6 @@ class Command(BaseCommand):
 
                     self.stdout.write(
                         self.style.SUCCESS(message))
-
 
                 else:
 
