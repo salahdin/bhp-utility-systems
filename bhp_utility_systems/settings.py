@@ -241,6 +241,9 @@ DASHBOARD_URL_NAMES = {
     'contract_listboard_url': 'cms_dashboard:contract_listboard_url',
     'contact_listboard_url': 'edc_sms:contact_listboard_url',
     'cms_url': 'cms_dashboard:cms_url',
+    'reports_url': 'cms_dashboard:reports_url',
+    
+    
 
     # Document tracking
     'document_dashboard_url': 'document_tracking_dashboard:document_dashboard_url',
