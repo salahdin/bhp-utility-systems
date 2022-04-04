@@ -98,6 +98,7 @@ INSTALLED_APPS = [
     'document_tracking.apps.AppConfig',
     'document_tracking_dashboard.apps.AppConfig',
     'django_admin_listfilter_dropdown',
+    'bhp_utility_reports.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
