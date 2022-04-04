@@ -214,8 +214,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'bhp_utility_systems', 'static')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-# Dashboards
-
 DASHBOARD_URL_NAMES = {
     'data_manager_listboard_url': 'edc_data_manager:data_manager_listboard_url',
     'procurement_url': 'procurement_dashboard:procurement_url',
@@ -261,6 +259,11 @@ DASHBOARD_URL_NAMES = {
     'timesheet_home_url': 'timesheet:timesheet_home_url',
     'timesheet_calendar_table_url': 'timesheet_dashboard:timesheet_calendar_table_url',
     'reports_dashboard_url': 'timesheet_dashboard:reports_dashboard_url',
+
+    # Reports
+    'employees_report_listboard_url': 'bhp_utility_reports:employees_report_listboard_url',
+    'employee_timesheet_report_listboard_url': 'bhp_utility_reports:employee_timesheet_report_listboard_url',
+    'departments_timesheet_report_listboard_url': 'bhp_utility_reports:departments_timesheet_report_listboard_url'
 }
 
 DASHBOARD_BASE_TEMPLATES = {
@@ -297,6 +300,11 @@ DASHBOARD_BASE_TEMPLATES = {
     'timesheet_listboard_template': 'timesheet_dashboard/timesheet_listboard.html',
     'timesheet_employee_listboard_template': 'timesheet_dashboard/employee_listboard.html',
     'reports_dashboard_template': 'timesheet_dashboard/reports/dashboard.html',
+
+    # Reports
+    'employees_report_listboard_template': 'bhp_utility_reports/employees_listboard.html',
+    'employee_timesheet_report_listboard_template': 'bhp_utility_reports/employee_timesheet_listboard.html',
+    'departments_timesheet_report_listboard_template': 'bhp_utility_reports/departments_timesheet_listboard.html'
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
