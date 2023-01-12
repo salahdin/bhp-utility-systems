@@ -1,14 +1,46 @@
 local_date,label,country
-2021-01-02,Public Holiday,botswana
-2021-04-10,Good Friday,botswana
-2021-04-13,Easter Monday,botswana
-2021-05-01,May Day/Labour Day,botswana
-2021-05-03,May Public Holiday,botswana
-2021-05-21,Ascension Day,botswana
-2021-07-01,Sir Seretse Khama Day,botswana
-2021-07-19,President's Day,botswana
-2021-07-20,Public Holiday,botswana
-2021-09-30,Botswana Day,botswana
-2021-12-25,Christmas Day,botswana
-2021-12-26,Boxing Day,botswana
-2021-01-01,New Year,botswana
+01/01/21,New Year,botswana
+02/01/21,Public Holiday,botswana
+10/04/21,Good Friday,botswana
+13/04/21,Easter Monday,botswana
+01/05/21,May Day/Labour Day,botswana
+03/05/21,May Public Holiday,botswana
+21/05/21,Ascension Day,botswana
+01/07/21,Sir Seretse Khama Day,botswana
+19/07/21,President's Day,botswana
+20/07/21,Public Holiday,botswana
+30/09/21,Botswana Day,botswana
+01/10/21,Public Holiday,botswana
+25/12/21,Christmas Day,botswana
+26/12/21,Boxing Day,botswana
+27/12/21,Public Holiday,botswana
+28/12/21,Public Holiday,botswana
+03/01/22,Public Holiday,botswana
+04/01/22,Public Holiday,botswana
+15/04/22,Good Friday,botswana
+18/04/22,Easter Monday,botswana
+02/05/22,May Public Holiday,botswana
+26/05/22,Ascension Day,botswana
+01/07/22,Sir Seretse Khama Day,botswana
+18/07/22,President's Day,botswana
+19/07/22,Public Holiday,botswana
+30/09/22,Botswana Day,botswana
+25/12/22,Christmas Day,botswana
+26/12/22,Boxing Day,botswana
+27/12/22,Christmas Day (in lieu),botswana
+01/01/23,New Year,botswana
+02/01/23,Public Holiday,botswana
+03/01/23,New Year's Day (in lieu),botswana
+07/04/23,Good Friday,botswana
+08/04/23,Public Holiday,botswana
+10/04/23,Easter Monday,botswana
+01/05/23,Labour Day,botswana
+18/05/23,Ascension Day,botswana
+01/07/23,Sir Seretse Khama Day,botswana
+17/07/23,President's Day,botswana
+18/07/23,President's Day Holiday,botswana
+30/09/23,Botswana Day,botswana
+01/10/23,Botswana Day Holiday,botswana
+02/10/23,Botswana Day (in lieu),botswana
+25/12/23,Christmas Day,botswana
+26/12/23,Boxing Day,botswana
