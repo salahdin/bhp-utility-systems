@@ -37,10 +37,11 @@ class Command(BaseCommand):
                         'Department with these details {} not found. Skipping row {}.'.format(job_description_fields["department"], job_description_fields["id"])))
                     continue
 
-            job_description, created = JobDescription.objects.get_or_create(id=job_description_fields['id'], defaults=job_description_fields)
-            if created:
-                job_description.save()
-                count=count+1
+            try:
+                job_description = JobDescription.objects.get(id=job_description_fields['id'])
+            except JobDescription.DoesNotExist:
+                job_description = JobDescription.objects.create(**job_description_fields)
+                count += 1
             else:
                 self.stderr.write(self.style.WARNING("JobDescription with id {} already exists. Skipping row.".format(job_description_fields["id"])))
                 continue
